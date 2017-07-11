@@ -14,6 +14,9 @@
     <!--@AutoWired生效-->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-    <bean class="com.gaige.domain.User"/>
+    <bean class="com.gaige.domain.User">
+        <property name="age" value="32"/>
+        <property name="userName" value="wangsiii9ii"/>
+    </bean>
 
 </beans>

@@ -12,7 +12,7 @@
     <!--启用spring基于annotation的DI 使用户可以在springMVC中使用spring强大的注解 @AutoWired @Required等-->
     <context:annotation-config/>
     <!--指名包 扫描注解-->
-    <context:component-scan base-package="com.gaige.controllers"/>
+    <context:component-scan base-package="com.gaige.*"/>
 
     <!--@AutoWired生效-->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
@@ -20,13 +20,14 @@
     <mvc:default-servlet-handler/>
 
     <!--扩充注解驱动，可以将请求参数绑定到控制器参数-->
-    <mvc:annotation-driven >
+    <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-            <ref bean="stringHttpMessageConverter"/>
-            <ref bean="fastJsonHttpMessageConverter11"/>
+            <ref bean="stringHttpMessageConverter" />
+            <ref bean="fastJsonHttpMessageConverter" />
         </mvc:message-converters>
     </mvc:annotation-driven>
-    <!--FastJson(spring4.2x版本以上)-->
+
+
     <bean id="stringHttpMessageConverter"
           class="org.springframework.http.converter.StringHttpMessageConverter">
         <constructor-arg value="UTF-8" index="0"></constructor-arg>
@@ -37,7 +38,7 @@
         </property>
     </bean>
 
-    <bean id="fastJsonHttpMessageConverter11" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
+    <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
         <property name="supportedMediaTypes">
             <list>
                 <value>text/html;charset=UTF-8</value>
@@ -59,7 +60,7 @@
     </bean>
 
     <!--静态资源 css js img等-->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
     <!--进行视图解析器的相关配置-->
     <!--ViewResolver 视图解析器-->

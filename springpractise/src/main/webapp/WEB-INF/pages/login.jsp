@@ -9,7 +9,31 @@
 <html>
 <head>
     <title>登录</title>
-<body>
+<body style="text-align: center">
+
+<table border="0" align="center" valign="center">
+    <tr>
+        <td>输入用户名：<td>
+        <td><input type="text" name="userName" id="username"><td>
+    </tr>
+
+    <br/>
+
+    <tr>
+        <td>输入密码：<td>
+        <td><input type="password"/> <td>
+    </tr>
+
+    <br/>
+
+    <tr>
+        <td><input type="submit" value="提交"><td>
+    </tr>
+
+</table>
+
+<br/>
+<a href="http://localhost:8090/test/text">welcome</a>
 
 </body>
 </head>

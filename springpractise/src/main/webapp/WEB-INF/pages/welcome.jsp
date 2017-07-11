@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"  isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -18,7 +19,7 @@
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="text-align: center">
 <h1>SpringMVC</h1>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -27,6 +28,24 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 ${message}
+<table border="1" align="center" valign="center">
+    <tr >
+        <td>用户信息</td>
+        <td>json数据</td>
+    </tr>
+    <c:forEach items="${infoList.entrySet()}" var="entry">
+        <tr>
+            <td>${entry.getKey()}</td>
+            <td>
+                <%--<a href="https://www.baidu.com">json数据</a>--%>
+                ${entry.getValue()}
+            </td>
+        </tr>
+        <br/>
+    </c:forEach>
+</table>
+
+<br/>
 
 </body>
 </html>
