@@ -12,7 +12,7 @@
     <!--启用spring基于annotation的DI 使用户可以在springMVC中使用spring强大的注解 @AutoWired @Required等-->
     <context:annotation-config/>
     <!--指名包 扫描注解-->
-    <context:component-scan base-package="com.gaige.*"/>
+    <context:component-scan base-package="com.gaige.controllers"/>
 
     <!--@AutoWired生效-->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
@@ -20,44 +20,55 @@
     <mvc:default-servlet-handler/>
 
     <!--扩充注解驱动，可以将请求参数绑定到控制器参数-->
+    <!--<mvc:annotation-driven>-->
+        <!--<mvc:message-converters register-defaults="true">-->
+        <!--&lt;!&ndash;json处理&ndash;&gt;-->
+    <!--jackson-->
+            <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+                <!--<property name="supportedMediaTypes">-->
+                    <!--<list>-->
+                        <!--<value>application/json;charset=UTF-8</value>-->
+                        <!--<value>text/html;charset=UTF-8</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+            <!--</bean>-->
+    <!--</mvc:annotation-driven>-->
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-            <ref bean="stringHttpMessageConverter" />
-            <ref bean="fastJsonHttpMessageConverter" />
+            <!--fastjson-->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" index="0"></constructor-arg>
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
+                <!--<property name="supportedMediaTypes">-->
+                    <!--<list>-->
+                        <!--<value>text/html;charset=UTF-8</value>-->
+                        <!--<value>application/json;charset=UTF-8</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+                <property name="fastJsonConfig">
+                    <bean class="com.alibaba.fastjson.support.config.FastJsonConfig">
+                        <property name="features">
+                            <list>
+                                <value>AllowArbitraryCommas</value>
+                                <value>AllowUnQuotedFieldNames</value>
+                                <value>DisableCircularReferenceDetect</value>
+                            </list>
+                        </property>
+                        <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
+                    </bean>
+                </property>
+            </bean>
+
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-
-    <bean id="stringHttpMessageConverter"
-          class="org.springframework.http.converter.StringHttpMessageConverter">
-        <constructor-arg value="UTF-8" index="0"></constructor-arg>
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/plain;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html;charset=UTF-8</value>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-        <property name="fastJsonConfig">
-            <bean class="com.alibaba.fastjson.support.config.FastJsonConfig">
-                <property name="features">
-                    <list>
-                        <value>AllowArbitraryCommas</value>
-                        <value>AllowUnQuotedFieldNames</value>
-                        <value>DisableCircularReferenceDetect</value>
-                    </list>
-                </property>
-                <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
-            </bean>
-        </property>
-    </bean>
 
     <!--静态资源 css js img等-->
     <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->

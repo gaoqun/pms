@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+body{background-color:white;}
+body {
+	margin: 0px;
+	font-family: 微软雅黑;
+	font-size: 14px;
+}
+
+.list_div {
+	padding: 0 20px;
+}
+.listTable_div{margin: 0 10px;}
+
+.list_div table {
+	border-collapse: collapse;
+	borde: none;
+	width: 100%;
+}
+
+.list_div table td {
+	border: solid #aaa 1px;
+	padding: 10px;
+	text-align: center;
+}
+
+.list_div table th {
+	border: solid #aaa 1px;
+	padding: 10px;
+	text-align: center;
+}
+
+.toptitle {
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 10px 0;
+}
+
+.showfileimg {
+	margin: 20px 70px 20px 65px;
+}
+
+.showfileimg img
+{
+	width:100px;
+}
+
+.select
+{
+	padding:2px 0;
+}
+.smail_text
+{
+	width:200px;
+	padding:2px 0;
+}

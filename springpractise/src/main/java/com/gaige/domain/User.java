@@ -1,14 +1,14 @@
 package com.gaige.domain;
 
 
-import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by gaige on 2017/7/3.
  */
-public class User implements Serializable{
+@Component
+public class User{
 
-    private static final long serialVersionUID = -4158630817359321626L;
     private String userName;
     private int age;
 
@@ -20,8 +20,16 @@ public class User implements Serializable{
         this.age = age;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
