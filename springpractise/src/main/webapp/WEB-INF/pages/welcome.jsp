@@ -44,6 +44,20 @@ ${message}
         <br/>
     </c:forEach>
 </table>
+<h2 id="name">${message}</h2>
+<br/>
+<button type="button" id="btn_change_name" onclick="changeName()">changeName</button>
+
+<script>
+
+    function changeName() {
+        element = document.getElementsById("btn_change_name");
+        name = document.getElementsByName("name");
+        var str = name.value;
+        name.innerHTML = str.appendData("hhhhh");
+    }
+
+</script>
 
 <br/>
 
