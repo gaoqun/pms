@@ -20,44 +20,13 @@
     <![endif]-->
 </head>
 <body style="text-align: center">
-<h1>SpringMVC</h1>
+<h1>欢迎${requestScope.user.userName}</h1>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-${message}
-<table border="1" align="center" valign="center">
-    <tr >
-        <td>用户信息</td>
-        <td>json数据</td>
-    </tr>
-    <c:forEach items="${infoList.entrySet()}" var="entry">
-        <tr>
-            <td>${entry.getKey()}</td>
-            <td>
-                <%--<a href="https://www.baidu.com">json数据</a>--%>
-                ${entry.getValue()}
-            </td>
-        </tr>
-        <br/>
-    </c:forEach>
-</table>
-<h2 id="name">${message}</h2>
-<br/>
-<button type="button" id="btn_change_name" onclick="changeName()">changeName</button>
-
-<script>
-
-    function changeName() {
-        element = document.getElementsById("btn_change_name");
-        name = document.getElementsByName("name");
-        var str = name.value;
-        name.innerHTML = str.appendData("hhhhh");
-    }
-
-</script>
 
 <br/>
 
