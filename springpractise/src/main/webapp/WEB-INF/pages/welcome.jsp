@@ -21,6 +21,8 @@
 </head>
 <body style="text-align: center">
 <h1>欢迎${requestScope.user.userName}</h1>
+<h1>sessionCope.username${sessionScope.user.userName}</h1>
+
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

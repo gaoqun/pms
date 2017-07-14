@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 public class User{
 
     private String userName;
-    private int age;
     private String password;
+    private int age;
 
     public User() {
     }
@@ -49,6 +49,7 @@ public class User{
     public String toString() {
         return "User{" +
                 "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 ", age=" + age +
                 '}';
     }
